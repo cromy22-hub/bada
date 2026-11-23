@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>바다수산 업무</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐟</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF3F4; --surface:#FFFFFF; --ink:#132227; --muted:#5A6C72; --line:#D2DDE0;
+  --sea:#0F5868; --yeosu:#0F5868; --suncheon:#B45309; --gwangyang:#6D28D9;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D191C; --surface:#152529; --ink:#E2ECEE; --muted:#93A7AD; --line:#2A3E44;
+    --sea:#62B5C6; --yeosu:#62B5C6; --suncheon:#F0A35A; --gwangyang:#B59CF5;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D191C; --surface:#152529; --ink:#E2ECEE; --muted:#93A7AD; --line:#2A3E44;
+  --sea:#62B5C6; --yeosu:#62B5C6; --suncheon:#F0A35A; --gwangyang:#B59CF5;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html,body{margin:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  line-height:1.55; -webkit-font-smoothing:antialiased;
+}
+main{max-width:760px; margin:0 auto; padding:48px 20px 56px}
+header{margin-bottom:36px}
+h1{font-size:2rem; font-weight:700; letter-spacing:-.02em; margin:0 0 6px}
+header p{margin:0; color:var(--muted)}
+h2{font-size:1.05rem; font-weight:700; margin:0 0 4px}
+.group{margin-bottom:36px}
+.group > p{margin:0 0 14px; color:var(--muted); font-size:.93rem}
+
+a.tile{
+  display:flex; align-items:center; gap:16px;
+  text-decoration:none; color:inherit;
+  background:var(--surface); border:1px solid var(--line); border-radius:12px;
+  padding:18px 20px;
+  transition:border-color .15s, transform .15s;
+}
+a.tile:hover{border-color:var(--c, var(--sea))}
+a.tile:active{transform:translateY(1px)}
+a.tile:focus-visible{outline:3px solid var(--c, var(--sea)); outline-offset:2px}
+.tile .mark{
+  flex:none; width:44px; height:44px; border-radius:10px;
+  display:grid; place-items:center;
+  background:var(--c, var(--sea)); color:var(--surface);
+  font-weight:700; font-size:1.05rem;
+}
+.tile .txt{flex:1; min-width:0}
+.tile strong{display:block; font-size:1.08rem; font-weight:700}
+.tile span{display:block; color:var(--muted); font-size:.9rem}
+.tile .go{flex:none; color:var(--muted); font-size:1.4rem; line-height:1}
+
+.regions{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+.regions a.tile{flex-direction:column; align-items:flex-start; gap:12px; padding:18px}
+.regions .go{display:none}
+.y{--c:var(--yeosu)} .s{--c:var(--suncheon)} .g{--c:var(--gwangyang)}
+
+footer{
+  border-top:1px solid var(--line); padding-top:18px;
+  color:var(--muted); font-size:.88rem;
+}
+footer p{margin:0 0 6px}
+@media (max-width:560px){
+  main{padding-top:32px}
+  h1{font-size:1.6rem}
+  .regions{grid-template-columns:1fr}
+  .regions a.tile{flex-direction:row; align-items:center}
+}
+@media (prefers-reduced-motion:reduce){ a.tile{transition:none} }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>바다수산</h1>
+    <p>입찰과 납품 업무를 여기서 시작하세요.</p>
+  </header>
+
+  <section class="group">
+    <h2>학교급식 입찰관리</h2>
+    <p>여수, 순천, 광양은 프로그램 안 위쪽 버튼으로 바꿔요.</p>
+    <a class="tile" href="bada_inout.html">
+      <div class="mark" aria-hidden="true">입</div>
+      <div class="txt"><strong>입찰관리 열기</strong><span>학교별 투찰률 추천과 낙찰 기록</span></div>
+      <div class="go" aria-hidden="true">›</div>
+    </a>
+  </section>
+
+  <section class="group">
+    <h2>수산 납품관리</h2>
+    <p>지역마다 기록이 따로 저장돼요.</p>
+    <div class="regions">
+      <a class="tile y" href="yeosu.html">
+        <div class="mark" aria-hidden="true">여</div>
+        <div class="txt"><strong>여수</strong><span>발주 등록과 명세서</span></div>
+      </a>
+      <a class="tile s" href="suncheon.html">
+        <div class="mark" aria-hidden="true">순</div>
+        <div class="txt"><strong>순천</strong><span>발주 등록과 명세서</span></div>
+      </a>
+      <a class="tile g" href="gwangyang.html">
+        <div class="mark" aria-hidden="true">광</div>
+        <div class="txt"><strong>광양</strong><span>발주 등록과 명세서</span></div>
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>기록은 지금 쓰는 컴퓨터의 브라우저에만 저장돼요. 다른 컴퓨터에서 열면 비어 있으니, 백업 파일로 옮겨 주세요.</p>
+    <p>브라우저 기록을 지우면 저장된 내용도 지워질 수 있어요. 백업 파일을 자주 저장해 두세요.</p>
+  </footer>
+</main>
+</body>
+</html>
